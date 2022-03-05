@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <CheckBox
+        android:id="@+id/mouseCheckBox"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/mouseOutput"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/mouse"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/mouseCheckBox"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <CheckBox
+        android:id="@+id/keyboardCheckBox"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mouseCheckBox" />
+
+    <TextView
+        android:id="@+id/keyboardOutput"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:text="@string/keyboard"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/keyboardCheckBox"
+        app:layout_constraintTop_toBottomOf="@id/mouseOutput" />
+
+
+    <CheckBox
+        android:id="@+id/webCamCheckBox"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/keyboardCheckBox" />
+
+    <TextView
+        android:id="@+id/webCumOutput"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:text="@string/web_cam"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/webCamCheckBox"
+        app:layout_constraintTop_toBottomOf="@id/keyboardOutput" />
+
+
+    <Button
+        android:id="@+id/toAllDataFragment"
+        style="@style/nextButtonStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

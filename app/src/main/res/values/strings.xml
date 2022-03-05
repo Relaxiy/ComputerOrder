@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ComputerOrder</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="next">next</string>
+    <string name="graphic_card">Graphic card</string>
+    <string name="operation_system">Operation system</string>
+    <string name="monitor">Monitor</string>
+    <string name="keyboard">KeyBoard</string>
+    <string name="mouse">Mouse</string>
+    <string name="web_cam">Web cam</string>
+    <string name="user">User:</string>
+    <string name="order">Order</string>
+    <string name="operation_system2">Operation system:</string>
+    <string name="graphic_card2">Graphic card:</string>
+    <string name="monitor2">Monitor:</string>
+    <string name="accessory">Accessory:</string>
+    <string name="item">Item</string>
+</resources>

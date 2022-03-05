@@ -1,0 +1,92 @@
+package com.example.computerorder.presentation.fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import com.example.computerorder.R
+import com.example.computerorder.presentation.models.TypeObj
+import com.example.computerorder.presentation.recycler.adapters.GraphicCardAdapter
+import com.example.computerorder.presentation.recycler.adapters.MonitorAdapter
+import com.example.computerorder.presentation.recycler.adapters.OperationSystemAdapter
+import com.example.computerorder.presentation.viewModels.ItemsBottomFragmentViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
+class ItemsBottomFragment(
+    private val type: TypeObj,
+    private val send: (item: Any) -> Unit
+) : BottomSheetDialogFragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? = inflater.inflate(R.layout.fragment_bottom, container, false)
+
+    companion object {
+        const val TAG = "ItemsBottomFragment"
+        fun newInstance(type: TypeObj, send: (Any) -> Unit) = ItemsBottomFragment(type, send)
+    }
+
+    private fun saveText(item: Any) {
+        send(item)
+        dismiss()
+    }
+
+    private val itemsBottomFragmentViewModel: ItemsBottomFragmentViewModel by viewModel()
+
+    private val recycler by lazy { view?.findViewById<RecyclerView>(R.id.bottom_recycle) }
+
+    private val graphicCardAdapter by lazy {
+        GraphicCardAdapter { graphicCard ->
+            saveText(graphicCard)
+        }
+    }
+    private val operationSystemAdapter by lazy {
+        OperationSystemAdapter { operationSystem ->
+            saveText(operationSystem)
+        }
+    }
+    private val monitorAdapter by lazy {
+        MonitorAdapter { monitor ->
+            saveText(monitor)
+        }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecycler()
+    }
+
+    private fun initRecycler() {
+        when (type) {
+            TypeObj.OPERATION_SYSTEM -> operationSystemObserve()
+            TypeObj.GRAPHIC_CARD -> graphicCardObserve()
+            TypeObj.MONITOR -> monitorObserve()
+        }
+    }
+
+    private fun operationSystemObserve() {
+        recycler?.adapter = operationSystemAdapter
+        itemsBottomFragmentViewModel.operationSystem.observe(viewLifecycleOwner) {
+            operationSystemAdapter.setItems(it)
+        }
+    }
+
+    private fun graphicCardObserve() {
+        recycler?.adapter = graphicCardAdapter
+        itemsBottomFragmentViewModel.graphicCard.observe(viewLifecycleOwner) {
+            graphicCardAdapter.setItems(it)
+        }
+    }
+
+    private fun monitorObserve() {
+        recycler?.adapter = monitorAdapter
+        itemsBottomFragmentViewModel.monitors.observe(viewLifecycleOwner) {
+            monitorAdapter.setItems(it)
+        }
+    }
+
+}

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+
+    <TextView
+        android:id="@+id/userTVNonUsable"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/user"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nameUserTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/userTVNonUsable" />
+
+    <TextView
+        android:id="@+id/phoneNumberTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/nameUserTV" />
+
+    <TextView
+        android:id="@+id/operationSystemTVNonUsable"
+        android:layout_width="196dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/operation_system2"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberTV" />
+
+    <TextView
+        android:id="@+id/operationSystemTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/operationSystemTVNonUsable" />
+
+    <TextView
+        android:id="@+id/graphicCardNonUsable"
+        android:layout_width="196dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/graphic_card2"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/operationSystemTV" />
+
+    <TextView
+        android:id="@+id/graphicCardTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/graphicCardNonUsable" />
+
+    <TextView
+        android:id="@+id/monitorNonUsable"
+        android:layout_width="196dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/monitor2"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/graphicCardTV" />
+
+    <TextView
+        android:id="@+id/monitorTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/monitorNonUsable" />
+
+    <TextView
+        android:id="@+id/accessoryNonUsable"
+        android:layout_width="196dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/accessory"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/monitorTV" />
+
+    <TextView
+        android:id="@+id/mouseTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/accessoryNonUsable" />
+
+    <TextView
+        android:id="@+id/keyboardTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/mouseTV" />
+
+    <TextView
+        android:id="@+id/webCumTV"
+        android:layout_width="196dp"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@id/userTVNonUsable"
+        app:layout_constraintTop_toBottomOf="@id/keyboardTV" />
+
+    <Button
+        android:id="@+id/orderButton"
+        style="@style/nextButtonStyle"
+        android:text="@string/order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
