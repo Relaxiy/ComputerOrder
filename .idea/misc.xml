@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ComputerOrder/ComputerOrder/app/src/main/res/layout/fragment_bottom.xml" value="0.21197916666666666" />
+        <entry key="..\:/ComputerOrder/ComputerOrder/app/src/main/res/layout/fragment_change_operation_system.xml" value="0.21197916666666666" />
+        <entry key="..\:/ComputerOrder/ComputerOrder/app/src/main/res/layout/graphic_card_item.xml" value="0.1828125" />
+        <entry key="..\:/ComputerOrder/ComputerOrder/app/src/main/res/layout/item_bottom_fragment.xml" value="0.21197916666666666" />
         <entry key="..\:/lesson7/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/lesson7/app/src/main/res/layout/fragment_all_data.xml" value="0.25" />
         <entry key="..\:/lesson7/app/src/main/res/layout/fragment_bottom.xml" value="0.1404494382022472" />

@@ -8,7 +8,7 @@ import com.example.computerorder.R
 import com.example.computerorder.domain.models.GraphicCard
 import com.example.computerorder.presentation.recycler.GeneralAdapter
 
-open class GraphicCardViewHolder(
+class GraphicCardViewHolder(
     itemView: View,
     private val saveText: (item: Any) -> Unit
 ) : RecyclerView.ViewHolder(itemView), GeneralAdapter.Binder<GraphicCard> {

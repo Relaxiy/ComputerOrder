@@ -40,26 +40,30 @@ class ItemsBottomFragment(
 
     private val recycler by lazy { view?.findViewById<RecyclerView>(R.id.bottom_recycle) }
 
-    private val graphicCardAdapter = object : GeneralAdapter<GraphicCard>({ graphicCard ->
-        saveText(graphicCard)
-    }) {
+    private val graphicCardAdapter = object : GeneralAdapter<GraphicCard>(
+        type,
+        { graphicCard -> saveText(graphicCard) }
+    ) {
         override fun getLayoutId(position: Int, obj: GraphicCard): Int =
-            R.layout.fragment_change_graphic_card
+            R.layout.item_bottom_fragment
     }
 
-    private val operationSystemAdapter = object : GeneralAdapter<OperationSystem>({ operationSystem ->
-        saveText(operationSystem)
-    }) {
-        override fun getLayoutId(position: Int, obj: OperationSystem): Int =
-            R.layout.fragment_change_operation_system
-    }
+    private val operationSystemAdapter =
+        object : GeneralAdapter<OperationSystem>(
+            type,
+            { operationSystem -> saveText(operationSystem) }
+        ) {
+            override fun getLayoutId(position: Int, obj: OperationSystem): Int =
+                R.layout.item_bottom_fragment
+        }
 
 
-    private val monitorAdapter = object : GeneralAdapter<Monitor>({ monitor ->
-        saveText(monitor)
-    }) {
+    private val monitorAdapter = object : GeneralAdapter<Monitor>(
+        type,
+        { monitor -> saveText(monitor) }
+    ) {
         override fun getLayoutId(position: Int, obj: Monitor): Int =
-            R.layout.fragment_change_monitor
+            R.layout.item_bottom_fragment
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

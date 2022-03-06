@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.computerorder.presentation.models.TypeObj
 
-abstract class GeneralAdapter<T>(private val saveText: (item: Any) -> Unit) :
+abstract class GeneralAdapter<T>(private val type: TypeObj, private val saveText: (item: Any) -> Unit) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: List<T> = emptyList()
 
@@ -33,7 +34,7 @@ abstract class GeneralAdapter<T>(private val saveText: (item: Any) -> Unit) :
     protected abstract fun getLayoutId(position: Int, obj: T): Int
 
     protected open fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
-        return ViewHolderFactory.create(view, viewType, saveText)
+        return ViewHolderFactory.create(view, type, saveText)
     }
 
     internal interface Binder<T> {
