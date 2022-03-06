@@ -1,31 +1,42 @@
 package com.example.computerorder.presentation.recycler
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.computerorder.R
 
-open class GeneralAdapter<T> : RecyclerView.Adapter<GeneralViewHolder<T>>() {
+abstract class GeneralAdapter<T>(private val saveText: (item: Any) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: List<T> = emptyList()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GeneralViewHolder<T> {
-        return GeneralViewHolder(
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return getViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(
-                    R.layout.item_bottom_fragment,
-                    parent,
-                    false
-                )
+                .inflate(viewType, parent, false),
+            viewType
         )
     }
 
-    override fun onBindViewHolder(holder: GeneralViewHolder<T>, position: Int) {
-        holder.bindItem(items[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as Binder<T>).bindItem(items[position])
     }
 
     override fun getItemCount(): Int = items.size
 
-    open fun setItems(data: List<T>) {
+    override fun getItemViewType(position: Int): Int = getLayoutId(position, items[position])
+
+    fun setItems(data: List<T>) {
         items = data
         notifyDataSetChanged()
+    }
+
+    protected abstract fun getLayoutId(position: Int, obj: T): Int
+
+    protected open fun getViewHolder(view: View, viewType: Int): RecyclerView.ViewHolder {
+        return ViewHolderFactory.create(view, viewType, saveText)
+    }
+
+    internal interface Binder<T> {
+        fun bindItem(data: T)
     }
 }
