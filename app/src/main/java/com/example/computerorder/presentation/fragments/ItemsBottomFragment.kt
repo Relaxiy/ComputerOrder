@@ -48,8 +48,7 @@ class ItemsBottomFragment(
             R.layout.item_bottom_fragment
     }
 
-    private val operationSystemAdapter =
-        object : GeneralAdapter<OperationSystem>(
+    private val operationSystemAdapter = object : GeneralAdapter<OperationSystem>(
             type,
             { operationSystem -> saveText(operationSystem) }
         ) {
