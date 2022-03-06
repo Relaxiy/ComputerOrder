@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.computerorder.R
+import com.example.computerorder.domain.models.GraphicCard
+import com.example.computerorder.domain.models.Monitor
+import com.example.computerorder.domain.models.OperationSystem
 import com.example.computerorder.presentation.models.TypeObj
-import com.example.computerorder.presentation.recycler.adapters.GraphicCardAdapter
-import com.example.computerorder.presentation.recycler.adapters.MonitorAdapter
-import com.example.computerorder.presentation.recycler.adapters.OperationSystemAdapter
+import com.example.computerorder.presentation.recycler.GeneralAdapter
 import com.example.computerorder.presentation.viewModels.ItemsBottomFragmentViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -39,20 +40,26 @@ class ItemsBottomFragment(
 
     private val recycler by lazy { view?.findViewById<RecyclerView>(R.id.bottom_recycle) }
 
-    private val graphicCardAdapter by lazy {
-        GraphicCardAdapter { graphicCard ->
-            saveText(graphicCard)
-        }
+    private val graphicCardAdapter = object : GeneralAdapter<GraphicCard>({ graphicCard ->
+        saveText(graphicCard)
+    }) {
+        override fun getLayoutId(position: Int, obj: GraphicCard): Int =
+            R.layout.fragment_change_graphic_card
     }
-    private val operationSystemAdapter by lazy {
-        OperationSystemAdapter { operationSystem ->
-            saveText(operationSystem)
-        }
+
+    private val operationSystemAdapter = object : GeneralAdapter<OperationSystem>({ operationSystem ->
+        saveText(operationSystem)
+    }) {
+        override fun getLayoutId(position: Int, obj: OperationSystem): Int =
+            R.layout.fragment_change_operation_system
     }
-    private val monitorAdapter by lazy {
-        MonitorAdapter { monitor ->
-            saveText(monitor)
-        }
+
+
+    private val monitorAdapter = object : GeneralAdapter<Monitor>({ monitor ->
+        saveText(monitor)
+    }) {
+        override fun getLayoutId(position: Int, obj: Monitor): Int =
+            R.layout.fragment_change_monitor
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

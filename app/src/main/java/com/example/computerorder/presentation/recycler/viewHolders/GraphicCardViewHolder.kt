@@ -6,12 +6,12 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.computerorder.R
 import com.example.computerorder.domain.models.GraphicCard
-import com.example.computerorder.presentation.recycler.GeneralViewHolder
+import com.example.computerorder.presentation.recycler.GeneralAdapter
 
 open class GraphicCardViewHolder(
     itemView: View,
     private val saveText: (item: Any) -> Unit
-) : GeneralViewHolder<GraphicCard>(itemView) {
+) : RecyclerView.ViewHolder(itemView), GeneralAdapter.Binder<GraphicCard> {
 
     private val bottomTextView by lazy {
         itemView.findViewById<TextView>(R.id.bottom_text_view)
