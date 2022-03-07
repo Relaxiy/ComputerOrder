@@ -1,13 +1,13 @@
 package com.example.computerorder.domain.useCases
 
+import com.example.computerorder.data.api.GraphicCardApi
 import com.example.computerorder.domain.models.GraphicCard
-import com.example.computerorder.domain.repositories.GraphicCardRepository
 
-class GraphicCardUseCaseImpl(private val graphicCardRepository: GraphicCardRepository) : GraphicCardUseCase {
+class GraphicCardUseCaseImpl(private val graphicCardApi: GraphicCardApi) : GraphicCardUseCase {
     override fun getGraphicCards(): List<GraphicCard> {
-        return graphicCardRepository.getGraphicCards().map { graphicCardData ->
+        return graphicCardApi.getGraphicCards().blockingGet().map { graphicCard ->
             GraphicCard(
-                graphicCardTitle = graphicCardData.graphicCardTitle
+                graphicCardTitle = graphicCard.graphicCardTitle
             )
         }
     }

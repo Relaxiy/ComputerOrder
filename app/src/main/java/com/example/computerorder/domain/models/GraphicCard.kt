@@ -1,3 +1,8 @@
 package com.example.computerorder.domain.models
 
-data class GraphicCard(val graphicCardTitle: String)
+import com.google.gson.annotations.SerializedName
+
+data class GraphicCard(
+    @SerializedName("graphicCard")
+    val graphicCardTitle: String
+)

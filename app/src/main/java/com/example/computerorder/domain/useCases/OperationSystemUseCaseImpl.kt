@@ -1,13 +1,13 @@
 package com.example.computerorder.domain.useCases
 
+import com.example.computerorder.data.api.OperationSystemApi
 import com.example.computerorder.domain.models.OperationSystem
-import com.example.computerorder.domain.repositories.OperationSystemRepository
 
-class OperationSystemUseCaseImpl(private val operationSystemRepository: OperationSystemRepository) : OperationSystemUseCase{
+class OperationSystemUseCaseImpl(private val operationSystemApi: OperationSystemApi) : OperationSystemUseCase{
     override fun getOperationSystems(): List<OperationSystem> {
-        return operationSystemRepository.getOperationSystems().map { operationSystemData ->
+        return operationSystemApi.getOperationSystems().blockingGet().map { operationSystem ->
             OperationSystem(
-                operationSystemTitle = operationSystemData.operationSystemTitle
+                operationSystemTitle = operationSystem.operationSystemTitle
             )
         }
     }

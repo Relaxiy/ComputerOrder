@@ -1,13 +1,13 @@
 package com.example.computerorder.domain.useCases
 
+import com.example.computerorder.data.api.MonitorApi
 import com.example.computerorder.domain.models.Monitor
-import com.example.computerorder.domain.repositories.MonitorsRepository
 
-class MonitorUseCaseImpl(private val monitorsRepository: MonitorsRepository) : MonitorUseCase{
+class MonitorUseCaseImpl(private val monitorApi: MonitorApi) : MonitorUseCase{
     override fun getMonitors(): List<Monitor> {
-        return monitorsRepository.getMonitors().map { monitorData ->
+        return monitorApi.getMonitors().blockingGet().map { monitor ->
             Monitor(
-                monitorTitle = monitorData.monitorTitle
+                monitorTitle = monitor.monitorTitle
             )
         }
     }

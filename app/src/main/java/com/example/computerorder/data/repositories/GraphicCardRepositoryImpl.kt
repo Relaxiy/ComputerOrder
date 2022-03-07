@@ -1,12 +1,16 @@
 package com.example.computerorder.data.repositories
 
-import com.example.computerorder.domain.models.GraphicCardData
-import com.example.computerorder.domain.repositories.GraphicCardRepository
+import com.example.computerorder.data.RetrofitInstance
+import com.example.computerorder.data.api.GraphicCardApi
+import com.example.computerorder.domain.models.GraphicCard
+import io.reactivex.Single
+import io.reactivex.schedulers.Schedulers
 
-class GraphicCardRepositoryImpl : GraphicCardRepository {
-
-    private val graphicCards: List<GraphicCardData> = GraphicCardData.values().asList()
-    override fun getGraphicCards(): List<GraphicCardData> {
-        return graphicCards
+class GraphicCardRepositoryImpl : GraphicCardApi {
+    override fun getGraphicCards(): Single<List<GraphicCard>> {
+        return RetrofitInstance.graphicCardApi.getGraphicCards()
+            .subscribeOn(Schedulers.io())
     }
+
+
 }

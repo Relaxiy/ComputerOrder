@@ -79,6 +79,7 @@ class ItemsBottomFragment(
     }
 
     private fun operationSystemObserve() {
+        itemsBottomFragmentViewModel.loadOperationSystems()
         recycler?.adapter = operationSystemAdapter
         itemsBottomFragmentViewModel.operationSystem.observe(viewLifecycleOwner) {
             operationSystemAdapter.setItems(it)
@@ -86,6 +87,7 @@ class ItemsBottomFragment(
     }
 
     private fun graphicCardObserve() {
+        itemsBottomFragmentViewModel.loadGraphicCards()
         recycler?.adapter = graphicCardAdapter
         itemsBottomFragmentViewModel.graphicCard.observe(viewLifecycleOwner) {
             graphicCardAdapter.setItems(it)
@@ -93,6 +95,7 @@ class ItemsBottomFragment(
     }
 
     private fun monitorObserve() {
+        itemsBottomFragmentViewModel.loadMonitors()
         recycler?.adapter = monitorAdapter
         itemsBottomFragmentViewModel.monitors.observe(viewLifecycleOwner) {
             monitorAdapter.setItems(it)

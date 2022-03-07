@@ -19,13 +19,15 @@ class ItemsBottomFragmentViewModel(private val generalInteractor: GeneralInterac
     val operationSystem: LiveData<List<OperationSystem>> get() = _operationSystem
     private val _operationSystem = MutableLiveData<List<OperationSystem>>()
 
-    init {
-        loadData()
+    fun loadOperationSystems(){
+        _operationSystem.value = generalInteractor.getOperationSystems()
     }
 
-    private fun loadData() {
+    fun loadGraphicCards(){
         _graphicCards.value = generalInteractor.getGraphicCards()
+    }
+
+    fun loadMonitors() {
         _monitors.value = generalInteractor.getMonitors()
-        _operationSystem.value = generalInteractor.getOperationSystems()
     }
 }

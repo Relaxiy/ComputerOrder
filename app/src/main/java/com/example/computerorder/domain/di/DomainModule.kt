@@ -1,44 +1,44 @@
 package com.example.computerorder.domain.di
 
+import com.example.computerorder.data.api.GraphicCardApi
+import com.example.computerorder.data.api.MonitorApi
+import com.example.computerorder.data.api.OperationSystemApi
 import com.example.computerorder.data.repositories.GraphicCardRepositoryImpl
 import com.example.computerorder.data.repositories.MonitorsRepositoryImpl
 import com.example.computerorder.data.repositories.OperationSystemRepositoryImpl
 import com.example.computerorder.domain.GeneralInteractor
 import com.example.computerorder.domain.GeneralInteractorImpl
 import com.example.computerorder.domain.useCases.*
-import com.example.computerorder.domain.repositories.GraphicCardRepository
-import com.example.computerorder.domain.repositories.MonitorsRepository
-import com.example.computerorder.domain.repositories.OperationSystemRepository
 import org.koin.dsl.module
 
 val domainModule = module {
     single<GraphicCardUseCase> {
         GraphicCardUseCaseImpl(
-            graphicCardRepository = get()
+            graphicCardApi = get()
         )
     }
 
-    single<GraphicCardRepository> {
+    single<GraphicCardApi> {
         GraphicCardRepositoryImpl()
     }
 
     single<MonitorUseCase> {
         MonitorUseCaseImpl(
-            monitorsRepository = get()
+            monitorApi = get()
         )
     }
 
-    single<MonitorsRepository> {
+    single<MonitorApi> {
         MonitorsRepositoryImpl()
     }
 
     single<OperationSystemUseCase> {
         OperationSystemUseCaseImpl(
-            operationSystemRepository = get()
+            operationSystemApi = get()
         )
     }
 
-    single<OperationSystemRepository> {
+    single<OperationSystemApi> {
         OperationSystemRepositoryImpl()
     }
 

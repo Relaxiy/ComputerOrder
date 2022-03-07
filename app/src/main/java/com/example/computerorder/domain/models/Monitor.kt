@@ -1,3 +1,8 @@
 package com.example.computerorder.domain.models
 
-data class Monitor(val monitorTitle: String)
+import com.google.gson.annotations.SerializedName
+
+data class Monitor(
+    @SerializedName("monitor")
+    val monitorTitle: String
+)

@@ -1,3 +1,8 @@
 package com.example.computerorder.domain.models
 
-data class OperationSystem(val operationSystemTitle: String)
+import com.google.gson.annotations.SerializedName
+
+data class OperationSystem(
+    @SerializedName("operationSystem")
+    val operationSystemTitle: String
+)
