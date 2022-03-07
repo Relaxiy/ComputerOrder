@@ -3,10 +3,12 @@ package com.example.computerorder.presentation.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.computerorder.domain.GeneralInteractor
 import com.example.computerorder.domain.models.GraphicCard
 import com.example.computerorder.domain.models.Monitor
 import com.example.computerorder.domain.models.OperationSystem
+import kotlinx.coroutines.launch
 
 class ItemsBottomFragmentViewModel(private val generalInteractor: GeneralInteractor) : ViewModel() {
 
@@ -20,14 +22,20 @@ class ItemsBottomFragmentViewModel(private val generalInteractor: GeneralInterac
     private val _operationSystem = MutableLiveData<List<OperationSystem>>()
 
     fun loadOperationSystems(){
-        _operationSystem.value = generalInteractor.getOperationSystems()
+        viewModelScope.launch {
+            _operationSystem.value = generalInteractor.getOperationSystems()
+        }
     }
 
     fun loadGraphicCards(){
-        _graphicCards.value = generalInteractor.getGraphicCards()
+        viewModelScope.launch {
+            _graphicCards.value = generalInteractor.getGraphicCards()
+        }
     }
 
     fun loadMonitors() {
-        _monitors.value = generalInteractor.getMonitors()
+        viewModelScope.launch {
+            _monitors.value = generalInteractor.getMonitors()
+        }
     }
 }

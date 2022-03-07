@@ -5,7 +5,7 @@ import com.example.computerorder.domain.models.Monitor
 import com.example.computerorder.domain.models.OperationSystem
 
 interface GeneralInteractor {
-    fun getGraphicCards(): List<GraphicCard>
-    fun getMonitors(): List<Monitor>
-    fun getOperationSystems(): List<OperationSystem>
+    suspend fun getGraphicCards(): List<GraphicCard>
+    suspend fun getMonitors(): List<Monitor>
+    suspend fun getOperationSystems(): List<OperationSystem>
 }

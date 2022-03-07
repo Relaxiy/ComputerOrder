@@ -12,15 +12,15 @@ class GeneralInteractorImpl(
     private val monitorUseCase: MonitorUseCase,
     private val operationSystemUseCase: OperationSystemUseCase
 ) : GeneralInteractor {
-    override fun getGraphicCards(): List<GraphicCard> {
+    override suspend fun getGraphicCards(): List<GraphicCard> {
         return graphicCardUseCase.getGraphicCards()
     }
 
-    override fun getMonitors(): List<Monitor> {
+    override suspend fun getMonitors(): List<Monitor> {
         return monitorUseCase.getMonitors()
     }
 
-    override fun getOperationSystems(): List<OperationSystem> {
+    override suspend fun getOperationSystems(): List<OperationSystem> {
         return operationSystemUseCase.getOperationSystems()
     }
 }
