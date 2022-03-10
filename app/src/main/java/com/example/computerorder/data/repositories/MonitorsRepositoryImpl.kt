@@ -7,7 +7,7 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 class MonitorsRepositoryImpl : MonitorApi {
-    override suspend fun getMonitors(): Single<List<Monitor>> {
+    override fun getMonitors(): Single<List<Monitor>> {
         return RetrofitInstance.monitorApi.getMonitors()
             .subscribeOn(Schedulers.io())
     }
