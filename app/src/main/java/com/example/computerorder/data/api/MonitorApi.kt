@@ -9,5 +9,5 @@ interface MonitorApi {
 
     @GET("./getMonitors")
     @Headers("Content-Type: application/json")
-    suspend fun getMonitors(): Single<List<Monitor>>
+    fun getMonitors(): Single<List<Monitor>>
 }
