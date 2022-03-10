@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <EditText
-        android:id="@+id/operationSystemInput"
-        android:layout_width="256dp"
+    <TextView
+        android:id="@+id/nullableTV"
+        android:layout_width="248dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:editable="false"
-        android:hint="@string/operation_system"
+        android:layout_marginStart="8dp"
+        android:text="@string/input_amount_of_monitors"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/monitorsAmount"
+        android:layout_width="196dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/input"
+        android:inputType="number"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Deprecated" />
+        app:layout_constraintTop_toBottomOf="@id/nullableTV" />
 
     <Button
-        android:id="@+id/toAmountGraphicCards"
+        android:id="@+id/toMonitors"
         style="@style/nextButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

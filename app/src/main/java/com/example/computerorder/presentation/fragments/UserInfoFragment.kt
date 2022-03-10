@@ -26,7 +26,7 @@ class UserInfoFragment : Fragment(R.layout.fragment_user_info) {
     }
 
     private fun initFields() {
-        toOperationSystemFragment.setOnClickListener {
+        toOsFragment.setOnClickListener {
             if (firstNameInput.text.isEmpty() ||
                 lastNameInput.text.isEmpty() ||
                 phoneNumberInput.text.isEmpty() ||

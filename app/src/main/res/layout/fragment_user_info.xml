@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@id/lastNameInput" />
 
     <Button
-        android:id="@+id/toOperationSystemFragment"
+        android:id="@+id/toOsFragment"
         style="@style/nextButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

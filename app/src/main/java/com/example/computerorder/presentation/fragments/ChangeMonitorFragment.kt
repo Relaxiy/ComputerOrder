@@ -2,9 +2,12 @@ package com.example.computerorder.presentation.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import com.example.computerorder.R
 import com.example.computerorder.domain.models.Monitor
+import com.example.computerorder.presentation.amountRecycler.AmountAdapter
 import com.example.computerorder.presentation.ext.dialog
 import com.example.computerorder.presentation.ext.openFragment
 import com.example.computerorder.presentation.models.TypeObj
@@ -21,39 +24,53 @@ class ChangeMonitorFragment : Fragment(R.layout.fragment_change_monitor) {
 
     private val dataSharedViewModel: DataSharedViewModel by sharedViewModel()
 
-    private fun setItem(monitor: Any) {
-        val monitorSet = monitor as Monitor
-        monitorInput.setText(monitorSet.monitorTitle)
-        dataSharedViewModel.setMonitor(monitor)
+    private val amountAdapter by lazy {
+        AmountAdapter { editText ->
+            openBottomFragment(editText)
+        }
+    }
+
+    private val recycler by lazy {
+        view?.findViewById<RecyclerView>(R.id.monitorRecycler)
+    }
+
+    private fun initRecycler() {
+        recycler?.adapter = amountAdapter
+        dataSharedViewModel.amount.observe(viewLifecycleOwner) { amount ->
+            amountAdapter.setAmount(amount)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initRecycler()
+    }
+
+    private fun setItem(monitor: Any, editText: EditText) {
+        val monitorSet = monitor as Monitor
+        editText.setText(monitorSet.monitorTitle)
+        dataSharedViewModel.setMonitor(monitorSet.monitorTitle)
         initField()
     }
 
-    private fun initField() {
-        monitorInput.setOnClickListener {
-            val bottomFragment = ItemsBottomFragment.newInstance(TypeObj.MONITOR) { monitor ->
-                setItem(monitor)
-            }
-            bottomFragment.show(
-                requireActivity().supportFragmentManager,
-                ItemsBottomFragment.TAG
-            )
+    private fun openBottomFragment(editText: EditText) {
+        val bottomFragment = ItemsBottomFragment.newInstance(TypeObj.MONITOR) { monitor ->
+            setItem(monitor, editText)
         }
+        bottomFragment.show(
+            requireActivity().supportFragmentManager,
+            ItemsBottomFragment.TAG
+        )
+    }
 
-        toAccessoryFragment.setOnClickListener {
-            if (monitorInput.text.isEmpty()) {
-                requireActivity().dialog()
-            } else {
-                requireActivity().apply {
-                    openFragment(
-                        ChangeAccessoryFragment.TAG,
-                        ChangeAccessoryFragment.newInstance(),
-                        R.id.container
-                    )
-                }
+    private fun initField() {
+        toAccessory.setOnClickListener {
+            requireActivity().apply {
+                openFragment(
+                    ChangeAccessoryFragment.TAG,
+                    ChangeAccessoryFragment.newInstance(),
+                    R.id.container
+                )
             }
         }
     }

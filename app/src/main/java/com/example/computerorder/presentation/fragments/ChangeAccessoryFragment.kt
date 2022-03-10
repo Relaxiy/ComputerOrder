@@ -25,7 +25,7 @@ class ChangeAccessoryFragment : Fragment(R.layout.fragment_change_accessory) {
     }
 
     private fun initFields() {
-        toAllDataFragment.setOnClickListener {
+        toAllData.setOnClickListener {
             var mouseTitle: String? = null
             var keyBoardTitle: String? = null
             var webCumTitle: String? = null

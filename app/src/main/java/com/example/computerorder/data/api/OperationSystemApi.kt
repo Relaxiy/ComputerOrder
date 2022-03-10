@@ -8,5 +8,5 @@ import retrofit2.http.Headers
 interface OperationSystemApi {
     @GET("./getOperationSystems")
     @Headers("Content-Type: application/json")
-    suspend fun getOperationSystems(): Single<List<OperationSystem>>
+    fun getOperationSystems(): Single<List<OperationSystem>>
 }

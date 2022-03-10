@@ -1,4 +1,4 @@
-package com.example.computerorder.presentation.recycler
+package com.example.computerorder.presentation.bottomSheetRecycler
 
 import android.view.LayoutInflater
 import android.view.View

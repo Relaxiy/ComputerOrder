@@ -10,7 +10,7 @@ import com.example.computerorder.domain.models.GraphicCard
 import com.example.computerorder.domain.models.Monitor
 import com.example.computerorder.domain.models.OperationSystem
 import com.example.computerorder.presentation.models.TypeObj
-import com.example.computerorder.presentation.recycler.GeneralAdapter
+import com.example.computerorder.presentation.bottomSheetRecycler.GeneralAdapter
 import com.example.computerorder.presentation.viewModels.ItemsBottomFragmentViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel

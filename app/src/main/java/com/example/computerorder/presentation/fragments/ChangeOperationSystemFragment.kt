@@ -44,14 +44,14 @@ class ChangeOperationSystemFragment : Fragment(R.layout.fragment_change_operatio
             )
         }
 
-        toGraphicCardFragment.setOnClickListener {
+        toAmountGraphicCards.setOnClickListener {
             if (operationSystemInput.text.isEmpty()) {
                 requireActivity().dialog()
             } else {
                 requireActivity().apply {
                     openFragment(
-                        ChangeGraphicCardFragment.TAG,
-                        ChangeGraphicCardFragment.newInstance(),
+                        ChangeAmountGraphicCardFragment.TAG,
+                        ChangeAmountGraphicCardFragment.newInstance(),
                         R.id.container
                     )
                 }

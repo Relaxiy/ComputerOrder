@@ -68,7 +68,7 @@
 
 
     <Button
-        android:id="@+id/toAllDataFragment"
+        android:id="@+id/toAllData"
         style="@style/nextButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

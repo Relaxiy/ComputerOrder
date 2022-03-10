@@ -1,4 +1,4 @@
-package com.example.computerorder.presentation.recycler.viewHolders
+package com.example.computerorder.presentation.bottomSheetRecycler.viewHolders
 
 import android.view.View
 import android.widget.TextView
@@ -6,7 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.computerorder.R
 import com.example.computerorder.domain.models.GraphicCard
-import com.example.computerorder.presentation.recycler.GeneralAdapter
+import com.example.computerorder.presentation.bottomSheetRecycler.GeneralAdapter
 
 class GraphicCardViewHolder(
     itemView: View,

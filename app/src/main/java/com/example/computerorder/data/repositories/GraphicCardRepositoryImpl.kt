@@ -7,7 +7,7 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 class GraphicCardRepositoryImpl : GraphicCardApi {
-    override suspend fun getGraphicCards(): Single<List<GraphicCard>> {
+    override fun getGraphicCards(): Single<List<GraphicCard>> {
         return RetrofitInstance.graphicCardApi.getGraphicCards()
             .subscribeOn(Schedulers.io())
     }

@@ -6,20 +6,31 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
-    <EditText
-        android:id="@+id/graphicCardInput"
+    <TextView
+        android:id="@+id/gTV"
         android:layout_width="256dp"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="10dp"
         android:editable="false"
-        android:hint="@string/graphic_card"
+        android:hint="@string/input_graphic_cards"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Deprecated" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/graphicCardRecycler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/toAmountMonitors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gTV" />
+
     <Button
-        android:id="@+id/toMonitorFragment"
+        android:id="@+id/toAmountMonitors"
         style="@style/nextButtonStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

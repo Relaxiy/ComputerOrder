@@ -7,7 +7,7 @@ import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
 
 class OperationSystemRepositoryImpl : OperationSystemApi {
-    override suspend fun getOperationSystems(): Single<List<OperationSystem>> {
+    override fun getOperationSystems(): Single<List<OperationSystem>> {
         return RetrofitInstance.operationSystemApi.getOperationSystems()
             .subscribeOn(Schedulers.io())
     }

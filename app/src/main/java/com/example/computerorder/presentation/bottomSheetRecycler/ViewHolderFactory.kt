@@ -1,12 +1,11 @@
-package com.example.computerorder.presentation.recycler
+package com.example.computerorder.presentation.bottomSheetRecycler
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.example.computerorder.R
 import com.example.computerorder.presentation.models.TypeObj
-import com.example.computerorder.presentation.recycler.viewHolders.GraphicCardViewHolder
-import com.example.computerorder.presentation.recycler.viewHolders.MonitorViewHolder
-import com.example.computerorder.presentation.recycler.viewHolders.OperationSystemViewHolder
+import com.example.computerorder.presentation.bottomSheetRecycler.viewHolders.GraphicCardViewHolder
+import com.example.computerorder.presentation.bottomSheetRecycler.viewHolders.MonitorViewHolder
+import com.example.computerorder.presentation.bottomSheetRecycler.viewHolders.OperationSystemViewHolder
 
 object ViewHolderFactory {
     fun create(view: View, type: TypeObj, saveText: (item: Any) -> Unit): RecyclerView.ViewHolder {

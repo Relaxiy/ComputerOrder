@@ -9,5 +9,5 @@ interface GraphicCardApi {
 
     @GET("./getGraphicCards")
     @Headers("Content-Type: application/json")
-    suspend fun getGraphicCards(): Single<List<GraphicCard>>
+    fun getGraphicCards(): Single<List<GraphicCard>>
 }

@@ -13,8 +13,14 @@
     <string name="user">User:</string>
     <string name="order">Order</string>
     <string name="operation_system2">Operation system:</string>
-    <string name="graphic_card2">Graphic card:</string>
-    <string name="monitor2">Monitor:</string>
+    <string name="graphic_card2">Graphic cards:</string>
+    <string name="monitor2">Monitors:</string>
     <string name="accessory">Accessory:</string>
     <string name="item">Item</string>
+    <string name="input_amount_of_graphic_cards">Input amount of graphic cards:</string>
+    <string name="input">input</string>
+    <string name="input_amount_of_monitors">Input amount of monitors:</string>
+    <string name="input_graphic_cards">Input Graphic Cards:</string>
+    <string name="input_monitors">Input monitors</string>
+    <string name="change">Change</string>
 </resources>
