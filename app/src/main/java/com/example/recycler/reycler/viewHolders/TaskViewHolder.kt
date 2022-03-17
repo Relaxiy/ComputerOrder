@@ -13,7 +13,7 @@ import com.example.recycler.reycler.BaseViewHolder
 
 class TaskViewHolder(itemView: View) : BaseViewHolder(itemView) {
 
-    companion object{
+    companion object {
         const val VIEW_TYPE = 6
         fun newInstance(parent: ViewGroup) = TaskViewHolder(
             LayoutInflater.from(
@@ -29,6 +29,7 @@ class TaskViewHolder(itemView: View) : BaseViewHolder(itemView) {
     private val taskInput by lazy {
         itemView.findViewById<TextView>(R.id.input_title)
     }
+
     override fun bindItem(generalItem: GeneralItem) {
         (generalItem as Task).apply {
             taskInput.text = task

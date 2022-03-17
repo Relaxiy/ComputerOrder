@@ -13,7 +13,7 @@ import com.example.recycler.reycler.BaseViewHolder
 
 class DateViewHolder(itemView: View) : BaseViewHolder(itemView) {
 
-    companion object{
+    companion object {
         const val VIEW_TYPE = 3
         fun newInstance(parent: ViewGroup) = DateViewHolder(
             LayoutInflater.from(
@@ -33,6 +33,7 @@ class DateViewHolder(itemView: View) : BaseViewHolder(itemView) {
     private val timeInput by lazy {
         itemView.findViewById<TextView>(R.id.input_time)
     }
+
     override fun bindItem(generalItem: GeneralItem) {
         (generalItem as Date).apply {
             dayInput.text = day

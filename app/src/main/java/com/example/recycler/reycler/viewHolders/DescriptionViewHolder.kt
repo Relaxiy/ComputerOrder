@@ -12,7 +12,7 @@ import com.example.recycler.reycler.BaseViewHolder
 
 class DescriptionViewHolder(itemView: View) : BaseViewHolder(itemView) {
 
-    companion object{
+    companion object {
         const val VIEW_TYPE = 4
         fun newInstance(parent: ViewGroup) = DescriptionViewHolder(
             LayoutInflater.from(

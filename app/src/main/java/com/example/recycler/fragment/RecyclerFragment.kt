@@ -27,7 +27,7 @@ class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
     }
 
     private val adapter by lazy {
-        BaseAdapter{adapter, assign->
+        BaseAdapter { adapter, assign ->
             initAssignRecycler(adapter, assign)
         }
     }
@@ -37,9 +37,9 @@ class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
         initRecycler()
     }
 
-    private fun initAssignRecycler(assignAdapter: AssignAdapter, assign: Assign){
+    private fun initAssignRecycler(assignAdapter: AssignAdapter, assign: Assign) {
         assignViewModel.setItem(assign)
-        assignViewModel.items.observe(viewLifecycleOwner){
+        assignViewModel.items.observe(viewLifecycleOwner) {
             assignAdapter.setItems(it)
         }
     }

@@ -32,6 +32,7 @@ class AttachmentsViewHolder(itemView: View) : BaseViewHolder(itemView) {
     private val attachmentText by lazy {
         itemView.findViewById<TextView>(R.id.image_text)
     }
+
     override fun bindItem(generalItem: GeneralItem) {
         (generalItem as Attachment).apply {
             attachmentImage.setImageResource(imageId)

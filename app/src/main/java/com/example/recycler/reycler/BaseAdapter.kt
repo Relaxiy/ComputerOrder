@@ -18,7 +18,10 @@ class BaseAdapter(private val initRecycler: (assignAdapter: AssignAdapter, assig
             DateViewHolder.VIEW_TYPE -> DateViewHolder.newInstance(parent)
             DescriptionViewHolder.VIEW_TYPE -> DescriptionViewHolder.newInstance(parent)
             RadioButtonViewHolder.VIEW_TYPE -> RadioButtonViewHolder.newInstance(parent)
-            AssignRecyclerViewHolder.VIEW_TYPE -> AssignRecyclerViewHolder.newInstance(parent, initRecycler)
+            AssignRecyclerViewHolder.VIEW_TYPE -> AssignRecyclerViewHolder.newInstance(
+                parent,
+                initRecycler
+            )
             AttachmentsViewHolder.VIEW_TYPE -> AttachmentsViewHolder.newInstance(parent)
             else -> throw IllegalStateException("Wrong ViewHolder type")
         }

@@ -8,7 +8,7 @@ import com.example.recycler.models.Assign
 
 class AssignViewModel : ViewModel() {
 
-    val items: LiveData<List<Assign>>get() = _items
+    val items: LiveData<List<Assign>> get() = _items
     private val _items = MutableLiveData<List<Assign>>()
 
     init {
@@ -23,7 +23,7 @@ class AssignViewModel : ViewModel() {
         )
     }
 
-    fun setItem(assign: Assign){
+    fun setItem(assign: Assign) {
         val list = _items.value?.toMutableList()
         list?.add(assign)
         _items.value = list
