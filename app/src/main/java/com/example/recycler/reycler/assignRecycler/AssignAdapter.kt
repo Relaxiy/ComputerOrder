@@ -4,11 +4,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recycler.models.Assign
 
-class AssignAdapter(private val addImage: (Assign) -> Unit) : RecyclerView.Adapter<AssignItemViewHolder>() {
+class AssignAdapter(private val initRecycler: (assign: Assign) -> Unit) : RecyclerView.Adapter<AssignItemViewHolder>() {
 
     private var items: List<Assign> = listOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AssignItemViewHolder {
-        return AssignItemViewHolder.newInstance(parent, addImage)
+        return AssignItemViewHolder.newInstance(parent, initRecycler)
     }
 
     override fun onBindViewHolder(holder: AssignItemViewHolder, position: Int) {

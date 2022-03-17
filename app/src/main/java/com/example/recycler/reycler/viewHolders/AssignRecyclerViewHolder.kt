@@ -12,11 +12,17 @@ import com.example.recycler.reycler.BaseViewHolder
 import com.example.recycler.reycler.assignRecycler.AssignAdapter
 import com.example.recycler.viewModel.AssignViewModel
 
-class AssignRecyclerViewHolder(itemView: View, private val activity: FragmentActivity) : BaseViewHolder(itemView) {
+class AssignRecyclerViewHolder(
+    itemView: View,
+    private val initRecycler: (assignAdapter: AssignAdapter, assign: Assign) -> Unit
+) : BaseViewHolder(itemView) {
 
     companion object {
         const val VIEW_TYPE = 1
-        fun newInstance(parent: ViewGroup, activity: FragmentActivity) = AssignRecyclerViewHolder(
+        fun newInstance(
+            parent: ViewGroup,
+            initRecycler: (assignAdapter: AssignAdapter, assign: Assign) -> Unit
+        ) = AssignRecyclerViewHolder(
             LayoutInflater.from(
                 parent.context
             ).inflate(
@@ -24,14 +30,12 @@ class AssignRecyclerViewHolder(itemView: View, private val activity: FragmentAct
                 parent,
                 false
             ),
-            activity
+            initRecycler
         )
     }
 
-    private val assignViewModel = AssignViewModel()
-
-    private fun addImage(assign: Assign){
-        assignViewModel.setItem(assign)
+    private fun addImage(assign: Assign) {
+        initRecycler(adapter, assign)
     }
 
     private val recycler by lazy {
@@ -39,7 +43,7 @@ class AssignRecyclerViewHolder(itemView: View, private val activity: FragmentAct
     }
 
     private val adapter by lazy {
-        AssignAdapter{
+        AssignAdapter {
             addImage(it)
         }
     }
@@ -47,9 +51,7 @@ class AssignRecyclerViewHolder(itemView: View, private val activity: FragmentAct
     override fun bindItem(generalItem: GeneralItem) {
         recycler.adapter = adapter
         (generalItem as Assign).apply {
-            assignViewModel.items.observe(activity){
-                adapter.setItems(it)
-            }
+            addImage(this)
         }
     }
 }

@@ -4,10 +4,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recycler.models.*
+import com.example.recycler.reycler.assignRecycler.AssignAdapter
 import com.example.recycler.reycler.viewHolders.*
 import java.lang.IllegalStateException
 
-class BaseAdapter(private val activity: FragmentActivity) : RecyclerView.Adapter<BaseViewHolder>() {
+class BaseAdapter(private val initRecycler: (assignAdapter: AssignAdapter, assign: Assign) -> Unit) :
+    RecyclerView.Adapter<BaseViewHolder>() {
     private var items = listOf<GeneralItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -16,7 +18,7 @@ class BaseAdapter(private val activity: FragmentActivity) : RecyclerView.Adapter
             DateViewHolder.VIEW_TYPE -> DateViewHolder.newInstance(parent)
             DescriptionViewHolder.VIEW_TYPE -> DescriptionViewHolder.newInstance(parent)
             RadioButtonViewHolder.VIEW_TYPE -> RadioButtonViewHolder.newInstance(parent)
-            AssignRecyclerViewHolder.VIEW_TYPE -> AssignRecyclerViewHolder.newInstance(parent, activity)
+            AssignRecyclerViewHolder.VIEW_TYPE -> AssignRecyclerViewHolder.newInstance(parent, initRecycler)
             AttachmentsViewHolder.VIEW_TYPE -> AttachmentsViewHolder.newInstance(parent)
             else -> throw IllegalStateException("Wrong ViewHolder type")
         }

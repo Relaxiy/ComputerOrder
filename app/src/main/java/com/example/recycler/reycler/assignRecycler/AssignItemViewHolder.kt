@@ -8,11 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recycler.R
 import com.example.recycler.models.Assign
 
-class AssignItemViewHolder(itemView: View, private val addImage: (Assign) -> Unit) :
+class AssignItemViewHolder(
+    itemView: View,
+    private val initRecycler: (assign: Assign) -> Unit
+) :
     RecyclerView.ViewHolder(itemView) {
 
     companion object {
-        fun newInstance(parent: ViewGroup, addImage: (Assign) -> Unit) = AssignItemViewHolder(
+        fun newInstance(
+            parent: ViewGroup,
+            initRecycler: (assign: Assign) -> Unit
+        ) = AssignItemViewHolder(
             LayoutInflater.from(
                 parent.context
             ).inflate(
@@ -20,7 +26,7 @@ class AssignItemViewHolder(itemView: View, private val addImage: (Assign) -> Uni
                 parent,
                 false
             ),
-            addImage
+            initRecycler
         )
     }
 
@@ -31,7 +37,7 @@ class AssignItemViewHolder(itemView: View, private val addImage: (Assign) -> Uni
     fun bindItem(assign: Assign) {
         assignInput.setImageResource(assign.image)
         assignInput.setOnClickListener {
-            addImage(assign)
+            initRecycler(assign)
         }
     }
 }
