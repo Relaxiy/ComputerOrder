@@ -7,12 +7,24 @@ import com.example.recycler.domain.repositoryes.AssignAndAttachmentsRepository
 class AssignAndAttachmentsUseCaseImpl(
     private val assignAndAttachmentsRepository: AssignAndAttachmentsRepository
 ) : AssignAndAttachmentsUseCase {
+
     override suspend fun getAssigns(): List<Assign> {
-        TODO("Not yet implemented")
+        return assignAndAttachmentsRepository.getAssignAndAttachment()
+            .map { assignAndAttachmentsData ->
+                Assign(
+                    image = assignAndAttachmentsData.assignImage
+                )
+            }
     }
 
     override suspend fun getAttachments(): List<Attachment> {
-        TODO("Not yet implemented")
+        return assignAndAttachmentsRepository.getAssignAndAttachment()
+            .map { assignAndAttachmentsData ->
+                Attachment(
+                    imageId = assignAndAttachmentsData.assignImage,
+                    imageName = assignAndAttachmentsData.imageName
+                )
+            }
     }
 
 

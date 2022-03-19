@@ -7,12 +7,22 @@ import com.example.recycler.domain.repositoryes.DescriptionAndTodoRepository
 class DescriptionAndTodoUseCaseImpl(
     private val descriptionAndTodoRepository: DescriptionAndTodoRepository
 ) : DescriptionAndTodoUseCase {
+
     override suspend fun getDescriptions(): List<Description> {
-        TODO("Not yet implemented")
+        return descriptionAndTodoRepository.getDescriptionAndTodo().map { descriptionAndTodoData ->
+            Description(
+                description = descriptionAndTodoData.description
+            )
+        }
     }
 
     override suspend fun getTodoItems(): List<TodoItem> {
-        TODO("Not yet implemented")
+        return descriptionAndTodoRepository.getDescriptionAndTodo().map { descriptionAndTodoData ->
+            TodoItem(
+                radioButtonFirstText = descriptionAndTodoData.radioButtonFirstText,
+                radioButtonSecondText = descriptionAndTodoData.radioButtonSecondText
+            )
+        }
     }
 
 }

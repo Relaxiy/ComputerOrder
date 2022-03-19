@@ -7,12 +7,22 @@ import com.example.recycler.domain.repositoryes.TaskAndDateRepository
 class TaskAndDateUseCaseImpl(
     private val titleAndDateRepository: TaskAndDateRepository
 ) : TaskAndDateUseCase {
+
     override suspend fun getTasks(): List<Task> {
-        TODO("Not yet implemented")
+        return titleAndDateRepository.getTitleAndDate().map { taskAndDateData ->
+            Task(
+                task = taskAndDateData.task
+            )
+        }
     }
 
     override suspend fun getDates(): List<Date> {
-        TODO("Not yet implemented")
+        return titleAndDateRepository.getTitleAndDate().map { taskAndDateData ->
+            Date(
+                day = taskAndDateData.day,
+                hours = taskAndDateData.hours
+            )
+        }
     }
 
 
