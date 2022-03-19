@@ -2,8 +2,8 @@ package com.example.recycler
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.recycler.ext.openFragment
-import com.example.recycler.fragment.RecyclerFragment
+import com.example.recycler.presentation.ext.openFragment
+import com.example.recycler.presentation.fragment.RecyclerFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
