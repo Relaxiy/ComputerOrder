@@ -3,10 +3,13 @@ package com.example.recycler.presentation.viewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.recycler.R
+import com.example.recycler.domain.MainInteractor
 import com.example.recycler.domain.models.*
+import kotlinx.coroutines.launch
 
-class RecyclerFragmentViewModel : ViewModel() {
+class RecyclerFragmentViewModel(private val mainInteractor: MainInteractor) : ViewModel() {
 
     val items: LiveData<List<GeneralItem>> get() = _items
     private val _items = MutableLiveData<List<GeneralItem>>()
@@ -17,32 +20,8 @@ class RecyclerFragmentViewModel : ViewModel() {
 
     private fun loadItems() {
 
-        _items.value = listOf(
-            Task(
-                task = "hello? hello! I see you? I see you!"
-            ),
-            Date(
-                day = "Today",
-                hours = "12:05"
-            ),
-            Description(
-                description = "I find you in my repository on GitHub. Why you see that?"
-            ),
-            TodoItem(
-                radioButtonFirstText = "Toast",
-                radioButtonSecondText = "SnackBar"
-            ),
-            Assign(
-                R.drawable.ic_add_image
-            ),
-            Attachment(
-                imageId = R.drawable.ic_wallet,
-                imageName = "image"
-            ),
-            Attachment(
-                imageId = R.drawable.ic_wallet,
-                imageName = "image"
-            )
-        )
+        viewModelScope.launch {
+            _items.value = mainInteractor.getItems()
+        }
     }
 }

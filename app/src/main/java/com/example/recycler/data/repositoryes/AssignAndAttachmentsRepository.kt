@@ -2,11 +2,10 @@ package com.example.recycler.data.repositoryes
 
 import com.example.recycler.R
 import com.example.recycler.data.models.AssignAndAttachmentsData
-import com.example.recycler.domain.repositoryes.AssignAndAttachmentsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-object AssignAndAttachmentsRepositoryImpl : AssignAndAttachmentsRepository {
+object AssignAndAttachmentsRepository {
 
     private val items = listOf(
         AssignAndAttachmentsData(
@@ -16,8 +15,8 @@ object AssignAndAttachmentsRepositoryImpl : AssignAndAttachmentsRepository {
         )
     )
 
-    override suspend fun getAssignAndAttachment(): List<AssignAndAttachmentsData> {
-        return withContext(Dispatchers.IO){
+    suspend fun getAssignAndAttachment(): List<AssignAndAttachmentsData> {
+        return withContext(Dispatchers.IO) {
             return@withContext items
         }
     }

@@ -10,6 +10,7 @@ import com.example.recycler.presentation.reycler.BaseAdapter
 import com.example.recycler.presentation.reycler.assignRecycler.AssignAdapter
 import com.example.recycler.presentation.viewModel.AssignViewModel
 import com.example.recycler.presentation.viewModel.RecyclerFragmentViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
     companion object {
@@ -17,9 +18,10 @@ class RecyclerFragment : Fragment(R.layout.fragment_recycler) {
         fun newInstance() = RecyclerFragment()
     }
 
-    private val recyclerFragmentViewModel = RecyclerFragmentViewModel()
+    private val recyclerFragmentViewModel: RecyclerFragmentViewModel by viewModel()
 
-    private val assignViewModel = AssignViewModel()
+    private val assignViewModel: AssignViewModel by viewModel()
+
     private val recycler by lazy {
         view?.findViewById<RecyclerView>(R.id.main_recycler)
     }
