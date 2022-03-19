@@ -32,10 +32,6 @@ class AssignRecyclerViewHolder(
         )
     }
 
-    private fun addImage(assign: Assign) {
-        initRecycler(adapter, assign)
-    }
-
     private val recycler by lazy {
         itemView.findViewById<RecyclerView>(R.id.assign_recycler)
     }
@@ -45,6 +41,11 @@ class AssignRecyclerViewHolder(
             addImage(it)
         }
     }
+
+    private fun addImage(assign: Assign) {
+        initRecycler(adapter, assign)
+    }
+
 
     override fun bindItem(generalItem: GeneralItem) {
         recycler.adapter = adapter

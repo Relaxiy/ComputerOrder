@@ -11,8 +11,7 @@ import com.example.recycler.domain.models.Assign
 class AssignItemViewHolder(
     itemView: View,
     private val initRecycler: (assign: Assign) -> Unit
-) :
-    RecyclerView.ViewHolder(itemView) {
+) : RecyclerView.ViewHolder(itemView) {
 
     companion object {
         fun newInstance(

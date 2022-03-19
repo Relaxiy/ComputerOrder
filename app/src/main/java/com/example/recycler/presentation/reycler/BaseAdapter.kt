@@ -40,7 +40,6 @@ class BaseAdapter(private val initRecycler: (assignAdapter: AssignAdapter, assig
             is TodoItem -> RadioButtonViewHolder.VIEW_TYPE
             is Assign -> AssignRecyclerViewHolder.VIEW_TYPE
             is Attachment -> AttachmentsViewHolder.VIEW_TYPE
-            else -> 0
         }
     }
 
