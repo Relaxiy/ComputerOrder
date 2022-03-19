@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.recycler.R
 import com.example.recycler.domain.MainInteractor
 import com.example.recycler.domain.models.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RecyclerFragmentViewModel(private val mainInteractor: MainInteractor) : ViewModel() {
@@ -20,8 +21,8 @@ class RecyclerFragmentViewModel(private val mainInteractor: MainInteractor) : Vi
 
     private fun loadItems() {
 
-        viewModelScope.launch {
-            _items.value = mainInteractor.getItems()
+        viewModelScope.launch(Dispatchers.IO) {
+            _items.postValue(mainInteractor.getItems())
         }
     }
 }

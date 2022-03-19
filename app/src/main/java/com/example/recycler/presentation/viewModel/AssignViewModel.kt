@@ -16,11 +16,7 @@ class AssignViewModel : ViewModel() {
     }
 
     private fun load() {
-        _items.value = listOf(
-            Assign(
-                R.drawable.ic_add_image
-            )
-        )
+        _items.value = listOf()
     }
 
     fun setItem(assign: Assign) {

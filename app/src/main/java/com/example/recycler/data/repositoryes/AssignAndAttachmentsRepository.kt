@@ -12,11 +12,6 @@ object AssignAndAttachmentsRepository {
             assignImage = R.drawable.ic_add_image,
             attachmentImage = R.drawable.ic_wallet,
             imageName = "image"
-        ),
-        AssignAndAttachmentsData(
-            assignImage = R.drawable.ic_add_image,
-            attachmentImage = R.drawable.ic_wallet,
-            imageName = ""
         )
     )
 
