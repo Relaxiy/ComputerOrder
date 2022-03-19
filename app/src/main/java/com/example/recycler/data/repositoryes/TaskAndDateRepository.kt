@@ -11,6 +11,11 @@ object TaskAndDateRepository {
             task = "hello? hello! I see you? I see you!",
             day = "Today",
             hours = "12:05"
+        ),
+        TaskAndDateData(
+            task = "hello? hello! I see you? I see you!",
+            day = "Today",
+            hours = "12:05"
         )
     )
 

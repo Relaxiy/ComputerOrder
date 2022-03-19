@@ -11,6 +11,11 @@ object DescriptionAndTodoRepository {
             description = "I find you in my repository on GitHub. Why you see that?",
             radioButtonFirstText = "Toast",
             radioButtonSecondText = "SnackBar"
+        ),
+        DescriptionAndTodoData(
+            description = "I find you in my repository on GitHub. Why you see that?",
+            radioButtonFirstText = "Toast",
+            radioButtonSecondText = "SnackBar"
         )
     )
 

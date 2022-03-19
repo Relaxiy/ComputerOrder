@@ -14,12 +14,12 @@ class MainInteractorImpl(
     override suspend fun getItems(): List<GeneralItem> {
         val items: MutableList<GeneralItem> = mutableListOf()
         taskAndDateUseCase.getTasks().forEachIndexed { index, _ ->
-            items.addAll(index, assignAndAttachmentsUseCase.getAttachments())
-            items.addAll(index, assignAndAttachmentsUseCase.getAssigns())
-            items.addAll(index, descriptionAndTodoUseCase.getTodoItems())
-            items.addAll(index, descriptionAndTodoUseCase.getDescriptions())
-            items.addAll(index, taskAndDateUseCase.getDates())
-            items.addAll(index, taskAndDateUseCase.getTasks())
+            items.add(taskAndDateUseCase.getTasks()[index])
+            items.add(taskAndDateUseCase.getDates()[index])
+            items.add(descriptionAndTodoUseCase.getDescriptions()[index])
+            items.add(descriptionAndTodoUseCase.getTodoItems()[index])
+            items.add(assignAndAttachmentsUseCase.getAssigns()[index])
+            items.add(assignAndAttachmentsUseCase.getAttachments()[index])
         }
         return items.toList()
     }
